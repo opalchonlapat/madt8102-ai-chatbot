@@ -1,5 +1,7 @@
 # MADT8102 Final Project
 
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://employee-attendance-ai-chatbot.streamlit.app/)
+
 This repository contains the AI Chatbot for Employee Attendance Assistance, a feature for HR analytics. This project is part of the final assignment for the MADT8102 course.
 
 ## Installation
