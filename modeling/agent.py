@@ -47,7 +47,7 @@ class Agent:
         return {'messages': [message]}
 
 # Streamlit runs your script from top to bottom at every user interaction or code change.
-# @st.cache_resource
+@st.cache_resource
 def init_object():
     ### initialize ###
     embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
