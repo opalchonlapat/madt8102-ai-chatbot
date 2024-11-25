@@ -92,6 +92,8 @@ def init_object():
             doc_content += "\n\n"
         return doc_content
     
+    # Rebuild the model schema after all types are defined
+    SQLDatabaseToolkit.model_rebuild()
     toolkit = SQLDatabaseToolkit(db=db, llm=llm)
     tools = toolkit.get_tools()
     tools.append(get_attendance_policy)
