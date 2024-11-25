@@ -18,3 +18,4 @@ python-dotenv==1.0.1
 SQLAlchemy==2.0.36
 streamlit==1.40.1
 openpyxl==3.1.5
+pydantic==2.9.2
