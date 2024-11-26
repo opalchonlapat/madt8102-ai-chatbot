@@ -62,7 +62,7 @@ def init_object():
     current_directory = os.path.dirname(os.path.abspath(__file__))
     vector_store_path = os.path.join(current_directory, 'vector_store')
     vector_store = Chroma(
-        collection_name="attendance_policy",
+        collection_name="attendance_policy_v2",
         embedding_function=embeddings,
         persist_directory=vector_store_path
     )
