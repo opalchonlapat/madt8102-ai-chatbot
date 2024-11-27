@@ -26,12 +26,17 @@ os_write(str_content)
 
 # UI
 st.set_page_config(
-    page_title="HR Analytics",
-    page_icon="🤖"
+    page_title="Nong Gai Tong",
+    page_icon="kai_tong.png"
 )
 
-st.title("Employees Attendance Assistant")
-avatar_assistant = "🤖"
+# Create two columns
+col1, col2 = st.columns([0.2, 0.8])  # Adjust the ratio as needed
+with col1:
+    st.image("kai_tong.png", width=100)
+with col2:
+    st.title("Nong Gai Tong")
+avatar_assistant = "kai_tong.png"
 # client = Client()
 
 with st.sidebar:
