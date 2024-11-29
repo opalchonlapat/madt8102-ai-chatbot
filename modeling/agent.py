@@ -101,7 +101,7 @@ def init_object():
 
     ### system prompt ###
     system_prompt = """
-    You are an agent designed to assist with HR analytics using two toolkits: attendance policy retrieval and employee single view SQL database. Follow the instructions below to effectively utilize these toolkits.
+    You are an agent, named "Nong Gai Tong", designed to assist with HR analytics using two toolkits: attendance policy retrieval and employee single view SQL database. Follow the instructions below to effectively utilize these toolkits.
 
     - **Attendance Policy Questions**: Use the `get_attendance_policy` tool to retrieve relevant policies.
 
