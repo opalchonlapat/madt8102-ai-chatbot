@@ -41,7 +41,6 @@ avatar_assistant = "kai_tong.png"
 
 with st.sidebar:
     openai_api_key = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password")
-    os.environ["OPENAI_API_KEY"] = openai_api_key
     "[Get an OpenAI API key](https://platform.openai.com/account/api-keys)"
     is_clear_msg = st.button("Clear message history")
 
@@ -66,11 +65,17 @@ if user_input:
         st.stop()
     st.session_state["messages"].append({"role": "user", "content": user_input})
     st.chat_message("user").write(user_input)
-    responses = run_agent(user_input=user_input, thread_id=st.session_state["thread_id"])
-    # st.session_state["pre_defined_run_id"] = pre_defined_run_id
-    last_response_message = responses['messages'][-1].content
-    st.session_state["messages"].append({"role": "assistant", "content": last_response_message})
-    st.chat_message("assistant", avatar=avatar_assistant).write(last_response_message)
+    
+    try:
+        responses = run_agent(user_input=user_input, 
+                              thread_id=st.session_state["thread_id"],
+                              openai_api_key=openai_api_key)
+        last_response_message = responses['messages'][-1].content
+        st.session_state["messages"].append({"role": "assistant", "content": last_response_message})
+        st.chat_message("assistant", avatar=avatar_assistant).write(last_response_message)
+    except Exception as e:
+        error_message = f"An error occurred: {str(e)}"
+        st.error(error_message)
 
 if is_clear_msg:
     st.session_state.clear()

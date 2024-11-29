@@ -48,12 +48,13 @@ class Agent:
 
 # Streamlit runs your script from top to bottom at every user interaction or code change.
 @st.cache_resource
-def init_object():
+def init_object(openai_api_key: str):
     ### initialize ###
-    embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
+    embeddings = OpenAIEmbeddings(model="text-embedding-3-large", api_key=openai_api_key)
     llm = ChatOpenAI(
         model="gpt-4o",
-        temperature=0
+        temperature=0,
+        api_key=openai_api_key
     )
     str_content = f"Initialized LLM and Embedding model..."
     os_write(str_content)
@@ -161,8 +162,8 @@ def init_object():
     )
     return ai_agent.graph
 
-def run_agent(user_input: str, thread_id: str):
-    react_graph_memory = init_object()
+def run_agent(user_input: str, thread_id: str, openai_api_key: str):
+    react_graph_memory = init_object(openai_api_key=openai_api_key)
 
     # Specify a thread
     config = {"configurable": {"thread_id": thread_id}}
